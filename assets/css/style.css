@@ -1,0 +1,19 @@
+
+/* style.css is my own writing now  */
+body {
+    background-image: url(../images/opening2.jpg);
+    background-repeat: false;
+    background-size: cover;
+    height: 100vh;
+    color: rgb(255, 193, 182);
+    display: flex;
+    background-attachment: url(../css/audio/trashcan\ music\ demo.mp3);
+}
+.container {
+    margin: auto;
+    text-align: center;
+}
+#currentWord {
+    letter-spacing: 10px;
+}
+
