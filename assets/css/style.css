@@ -7,13 +7,16 @@ body {
     height: 100vh;
     color: rgb(255, 193, 182);
     display: flex;
-    background-attachment: url(../css/audio/trashcan\ music\ demo.mp3);
 }
 .container {
-    margin: auto;
-    text-align: center;
+    margin: auto]{1,4};
+    text-align: left;
 }
 #currentWord {
     letter-spacing: 10px;
 }
 
+header {
+    height:130vmax;
+    color:rgb(191, 187, 240);
+}

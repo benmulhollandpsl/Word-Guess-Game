@@ -13,7 +13,7 @@ $(document).ready(function() {
 // 9. notes on adjustments to scope at current build.
 // 9a. want to have a song play with associated words, and stop soon (so maybe just a 15 second clip of each robo.ch)
     var possibleWords = ["FlashMan", "ProtoMan", "DrWily", "DrLight", "BubbleMan", "MetalMan", 
-                        "WoodMan", "HeatMan", "Rush", "QuickMan", "AirMan", "CrashMan", "DocRobot"  ]
+                        "WoodMan", "HeatMan", "Rush", "QuickMan", "AirMan", "CrashMan", "DocRobot"];
 
     const maxGuess = 10
     var pauseGame = false
@@ -21,7 +21,6 @@ $(document).ready(function() {
     var guessedLetters = []
     var guessingWord = []
     var wordToMatch
-    var numGuess
     var wins = 0
 
     resetGame()
@@ -38,44 +37,43 @@ $(document).ready(function() {
     // Check if letter is in word & process
     function checkForLetter(letter) {
         var foundLetter = false
-        var correctSound = document.createElement("audio")
-        var incorrectSound = document.createElement("audio")
-        correctSound.setAttribute("src", "assets/sounds/stairs.mp3")
-        incorrectSound.setAttribute("src","assets/sounds/croak.mp3")
-
+        
         // Search string for letter
         for (var i=0, j= wordToMatch.length; i<j; i++) {
             if (letter === wordToMatch[i]) {
                 guessingWord[i] = letter
                 foundLetter = true
                 correctSound.play()
-                // If guessing word matches random word
+                // If guessing word matches word from list
+                //play short section of that characters music
+                
                 if (guessingWord.join("") === wordToMatch) {
                     // Increment # of wins
                     wins++
                     pauseGame = true
                     updateDisplay()
                     setTimeout(resetGame,5000)
+
+        // use an array to put string together to see word
                 }
             }
         }
-
-        if (!foundLetter) {
-            incorrectSound.play()
-            // Check if inccorrect guess is already on the list
-            if (!guessedLetters.includes(letter)) {
-                // Add incorrect letter to guessed letter list
-                guessedLetters.push(letter)
-                // Decrement the number of remaining guesses
-                numGuess--
-            }
-            if (numGuess === 0) {
-                // Display word before reseting game
-                guessingWord = wordToMatch.split()
-                pauseGame = true
-                setTimeout(resetGame, 5000)
-            }
-        }
+//this is not my code and I don't understand it, it will be deleted soon
+        // if (!foundLetter) {
+        //     // Check if incorrect guess is listed
+        //     if (!guessedLetters.includes(letter)) {
+        //         // Add incorrect letter to guessed letter list
+        //         guessedLetters.push(letter)
+        //         // Decrement the number of remaining guesses
+        //         numGuess--
+        //     }
+        //     if (numGuess === 0) {
+        //         // Display word before reseting game
+        //         guessingWord = wordToMatch.split()
+        //         pauseGame = true
+        //         setTimeout(resetGame, 5000)
+        //     }
+        // }
 
         updateDisplay()
 
@@ -86,12 +84,13 @@ $(document).ready(function() {
     }
 
     function resetGame() {
-        numGuess = maxGuess
+        numGuess = 10
         pauseGame = false
 
         // Get a new word
         wordToMatch = possibleWords[Math.floor(Math.random() * possibleWords.length)].toUpperCase()
         console.log(wordToMatch)
+        document.write(myGame[random]);
 
         // Reset word arrays
         guessedLetters = []
