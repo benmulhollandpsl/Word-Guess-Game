@@ -1,5 +1,4 @@
-// this is no longer vdelariva's game in it's entirety.  I have systematically started deleting most of the original code and relearning/reentering the code
-// I will rewrite this entirely before homework is due without this current file
+// file completely rewritten
 $(document).ready(function() {
 
 // 1. Picking a 'random' word. Maybe not so random considering there is a themed background
@@ -12,40 +11,63 @@ $(document).ready(function() {
 // 8. try not to plagerize another persons work, study extra hard js I don't understand
 // 9. notes on adjustments to scope at current build.
 // 9a. want to have a song play with associated words, and stop soon (so maybe just a 15 second clip of each robo.ch)
-    var possibleWords = ["FlashMan", "ProtoMan", "DrWily", "DrLight", "BubbleMan", "MetalMan", 
-                        "WoodMan", "HeatMan", "Rush", "QuickMan", "AirMan", "CrashMan", "DocRobot"];
+    var listOfWords = [ 
+    "FlashMan", 
+    "ShadowMan", 
+    "TopMan", "Roll",
+    "ProtoMan", "DrWily", "DrLight", 
+    "BubbleMan", "MetalMan", 
+    "WoodMan", "HeatMan", "Rush", "QuickMan", 
+    "AirMan", "CrashMan", "DocRobot", 
+    "GeminiMan", "MagnetMan", 
+    ];
 
-    const maxGuess = 10
+    var word = listOfWords[Math.floor(Math.random()* words.length)].toUpperCase()
+    console.log(wordToMatch)
+    document.write(myGame[random]); 
+   
+    
+    var answerArray = [];
+    for (var i = 0; i < word.length; i++){
+        answerArray[I] = "_";
+    }
+    var remainingLetters = word.length;
+
+    while (remianingLetters > 0) {
+        //gamecode goes here
+        
+        //when out of guesses we leave this loop
+    }
+    const maxGuess = 11
     var pauseGame = false
-
-    var guessedLetters = []
+    var guessedLetter = []
     var guessingWord = []
     var wordToMatch
+    var numGuess
     var wins = 0
 
     resetGame()
 
     // Wait for key press
     document.onkeypress = function(event) {
-        // Make sure key pressed is an alpha character
+        // Make sure key pressed is alphabet
         if (isAlpha(event.key) && !pauseGame) {
             checkForLetter(event.key.toUpperCase())
         }
     }
+//change all to caps to minimize issues, saw example in another build, where lower case and upper wouldn't work
 
-    // Game Functions
     // Check if letter is in word & process
     function checkForLetter(letter) {
         var foundLetter = false
         
+
+
         // Search string for letter
         for (var i=0, j= wordToMatch.length; i<j; i++) {
             if (letter === wordToMatch[i]) {
                 guessingWord[i] = letter
                 foundLetter = true
-                correctSound.play()
-                // If guessing word matches word from list
-                //play short section of that characters music
                 
                 if (guessingWord.join("") === wordToMatch) {
                     // Increment # of wins
@@ -58,47 +80,47 @@ $(document).ready(function() {
                 }
             }
         }
-//this is not my code and I don't understand it, it will be deleted soon
-        // if (!foundLetter) {
-        //     // Check if incorrect guess is listed
-        //     if (!guessedLetters.includes(letter)) {
-        //         // Add incorrect letter to guessed letter list
-        //         guessedLetters.push(letter)
-        //         // Decrement the number of remaining guesses
-        //         numGuess--
-        //     }
-        //     if (numGuess === 0) {
-        //         // Display word before reseting game
-        //         guessingWord = wordToMatch.split()
-        //         pauseGame = true
-        //         setTimeout(resetGame, 5000)
-        //     }
-        // }
 
+    
+            if (!foundLetter) {}
+            if (!guessedLetter.includes(letter)){
+                guessedLetter.push(letter)numGuess--
+            }
+            if (numGuess === 0) {
+        //         // Display word before reseting game
+                guessingWord = wordToMatch.split()
+                pauseGame = true
+                setTimeout(resetGame, 5000)
+            }
+        }
+//these var's are so similiar in name this is a nightmare to sort out, I might need to add a third word onto some of them to keep it straight in my head
         updateDisplay()
 
     }
-    // Check in keypressed is between A-Z or a-z
+    // key pressed between A-z
     function isAlpha (ch){
         return /^[A-Z]$/i.test(ch);
     }
+//try either 100-103 or 106-109 <------------ note from 1/11
+
+    // var isAlpha = function(ch){
+    //     return /^[A-Z]$/i.test(ch);
+    //   }isAlpha
 
     function resetGame() {
         numGuess = 10
         pauseGame = false
 
         // Get a new word
-        wordToMatch = possibleWords[Math.floor(Math.random() * possibleWords.length)].toUpperCase()
+        wordToMatch = listOfWords[Math.floor(Math.random() * listOfWords.length)].toUpperCase()
         console.log(wordToMatch)
-        document.write(myGame[random]);
+        
 
-        // Reset word arrays
-        guessedLetters = []
+        guessedLetter = []
         guessingWord = []
 
         // Reset the guessed word
         for (var i=0, j=wordToMatch.length; i < j; i++){
-            // Put a space instead of an underscore between multi word "words"
             if (wordToMatch[i] === " ") {
                 guessingWord.push(" ")
             } else {
@@ -114,6 +136,6 @@ $(document).ready(function() {
         document.getElementById("totalWins").innerText = wins
         document.getElementById("currentWord").innerText = guessingWord.join("")
         document.getElementById("remainingGuesses").innerText = numGuess
-        document.getElementById("guessedLetters").innerText =  guessedLetters.join(" ")
+        document.getElementById("guessedLetter").innerText =  guessedLetter.join(" ")
     }
 })
