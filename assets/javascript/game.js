@@ -82,12 +82,14 @@ $(document).ready(function() {
         }
 
     
-            if (!foundLetter) {}
-            if (!guessedLetter.includes(letter)){
-                guessedLetter.push(letter)numGuess--
+            if (!foundLetter) {
+            if (!guessedLetter.includes(letter))
+
+                guessedLetter.push(letter)
+                numGuess--
             }
             if (numGuess === 0) {
-        //         // Display word before reseting game
+        //         // Displays word before reset
                 guessingWord = wordToMatch.split()
                 pauseGame = true
                 setTimeout(resetGame, 5000)
@@ -96,19 +98,19 @@ $(document).ready(function() {
 //these var's are so similiar in name this is a nightmare to sort out, I might need to add a third word onto some of them to keep it straight in my head
         updateDisplay()
 
-    }
-    // key pressed between A-z
-    function isAlpha (ch){
-        return /^[A-Z]$/i.test(ch);
-    }
+        }
+    // // key pressed between A-z
+    // function isAlpha (ch){
+    //     return /^[A-Z]$/i.test(ch);
+    // }
 //try either 100-103 or 106-109 <------------ note from 1/11
 
-    // var isAlpha = function(ch){
-    //     return /^[A-Z]$/i.test(ch);
-    //   }isAlpha
+    var isAlpha = function(ch){
+        return /^[A-Z]$/i.test(ch);
+      }isAlpha
 
     function resetGame() {
-        numGuess = 10
+        numGuess = maxGuess
         pauseGame = false
 
         // Get a new word

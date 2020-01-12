@@ -1,17 +1,16 @@
-
-
 body {
     background-image: url(../images/opening2.jpg);
     background-repeat: no-repeat;
     background-size: auto;
     height: fit-content;
     color: rgb(255, 193, 182);
-    display: float;
-    }
+    display: inline;
+}
 .container {
     margin: auto]{1,4};
     text-align: left;
 }
+
 #currentWord {
     letter-spacing: 10px;
 }
