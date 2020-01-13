@@ -1,13 +1,13 @@
 body {
     background-image: url(../images/opening2.jpg);
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size:1500px 1500px;
     height: fit-content;
-    color: rgb(255, 193, 182);
+    color: rgb(233, 236, 248);
     display: inline;
 }
 .container {
-    margin: auto]{1,4};
+    margin: auto;
     text-align: left;
 }
 

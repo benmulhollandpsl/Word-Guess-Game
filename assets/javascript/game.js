@@ -1,6 +1,5 @@
-// file completely rewritten
 $(document).ready(function() {
-
+// half psuedocode half plan of attack
 // 1. Picking a 'random' word. Maybe not so random considering there is a themed background
 // 2. Take the player’s guess.
 // 3. Quit the game if the player wants to... working on a time out or reset button maybe
@@ -11,6 +10,16 @@ $(document).ready(function() {
 // 8. try not to plagerize another persons work, study extra hard js I don't understand
 // 9. notes on adjustments to scope at current build.
 // 9a. want to have a song play with associated words, and stop soon (so maybe just a 15 second clip of each robo.ch)
+
+// instructions
+// 1. Play a sound or song when the user guesses their word correctly, like in our demo.
+// 2. Write some stylish CSS rules to make a design that fits your game's theme.
+// 3. **HARD MODE:** Organize your game code as an object, except for the key events to get the letter guessed. This will be a challenge if you haven't coded with JavaScript before, but we encourage anyone already familiar with the language to try this out.
+// 4. Save your whole game and its properties in an object.
+// 5. Save any of your game's functions as methods, and call them underneath your object declaration using event listeners.
+// 6. Don't forget to place your global variables and functions above your object.
+//    * Remember: global variables, then objects, then calls.
+// 7. Definitely talk with a TA or your instructor if you get tripped up during this challenge.
     var listOfWords = [ 
     "FlashMan", 
     "ShadowMan", 
@@ -19,38 +28,56 @@ $(document).ready(function() {
     "BubbleMan", "MetalMan", 
     "WoodMan", "HeatMan", "Rush", "QuickMan", 
     "AirMan", "CrashMan", "DocRobot", 
-    "GeminiMan", "MagnetMan", 
-    ];
+    "GeminiMan", "MagnetMan", ]
+    // ] ;
 
-    var word = listOfWords[Math.floor(Math.random()* words.length)].toUpperCase()
-    console.log(wordToMatch)
-    document.write(myGame[random]); 
+    const maxGuess = 10
    
-    
-    var answerArray = [];
-    for (var i = 0; i < word.length; i++){
-        answerArray[I] = "_";
-    }
-    var remainingLetters = word.length;
-
-    while (remianingLetters > 0) {
-        //gamecode goes here
-        
-        //when out of guesses we leave this loop
-    }
-    const maxGuess = 11
     var pauseGame = false
+
     var guessedLetter = []
+
     var guessingWord = []
+    
     var wordToMatch
+    
     var numGuess
+    
     var wins = 0
 
     resetGame()
 
+    // var word = listOfWords[Math.floor(Math.random()* words.length)].toUpperCase()
+    // console.log(wordToMatch)
+    // document.write(myGame[random]); 
+   
+    //commented out because of order, duplicates, and not clear writing.
+    // var answerArray = [];
+    
+    // }
+    // var remainingLetters = word.length;
+
+    // while (remianingLetters > 0) {
+        //gamecode goes here
+        
+        //when out of guesses we leave this loop
+
+    // const maxGuess = 10
+    // var pauseGame = false
+    // var guessedLetter = []
+    // var guessingWord = []
+    // var wordToMatch
+    // var numGuess
+    // var wins = 0
+
+    // resetGame()
+
+
+
+
     // Wait for key press
-    document.onkeypress = function(event) {
-        // Make sure key pressed is alphabet
+    document.onkeypress = function(event) 
+        {
         if (isAlpha(event.key) && !pauseGame) {
             checkForLetter(event.key.toUpperCase())
         }
@@ -60,7 +87,10 @@ $(document).ready(function() {
     // Check if letter is in word & process
     function checkForLetter(letter) {
         var foundLetter = false
-        
+        var correctSound = document.createElement("audio")
+        var incorrectSound = document.createElement("audio")
+        correctSound.setAttribute("src", "/assets/audio/megaman2won.wav")
+        incorrectSound.setAttribute("src","/assets/sounds/dundun.wav")
 
 
         // Search string for letter
@@ -68,46 +98,45 @@ $(document).ready(function() {
             if (letter === wordToMatch[i]) {
                 guessingWord[i] = letter
                 foundLetter = true
-                
+                correctSound = play()
+
                 if (guessingWord.join("") === wordToMatch) {
-                    // Increment # of wins
                     wins++
                     pauseGame = true
                     updateDisplay()
-                    setTimeout(resetGame,5000)
-
-        // use an array to put string together to see word
+                    setTimeout(resetGame,4500)
                 }
-            }
-        }
-
-    
-            if (!foundLetter) {
-            if (!guessedLetter.includes(letter))
-
+            }        
+        }        
+        // use an array to put string together to see word
+            
+        if (!foundLetter) {
+           incorrectSound.play()
+            if (!guessedLetter.includes(letter)) {
                 guessedLetter.push(letter)
                 numGuess--
             }
+            
             if (numGuess === 0) {
         //         // Displays word before reset
                 guessingWord = wordToMatch.split()
                 pauseGame = true
-                setTimeout(resetGame, 5000)
+                setTimeout(resetGame, 4500)
             }
         }
 //these var's are so similiar in name this is a nightmare to sort out, I might need to add a third word onto some of them to keep it straight in my head
         updateDisplay()
 
-        }
+    }
     // // key pressed between A-z
     // function isAlpha (ch){
     //     return /^[A-Z]$/i.test(ch);
     // }
-//try either 100-103 or 106-109 <------------ note from 1/11
-
-    var isAlpha = function(ch){
+//try either 100-103 or 106-109 <------------ note from '1/11'  i've added so many lines this is a moot comment '1/12'
+    function isAlpha (ch){
         return /^[A-Z]$/i.test(ch);
-      }isAlpha
+    }
+//this was a royal pain to figure out, i'm still having trouble having my file find the .js when opening in browser
 
     function resetGame() {
         numGuess = maxGuess
