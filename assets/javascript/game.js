@@ -84,13 +84,13 @@ $(document).ready(function() {
     }
 //change all to caps to minimize issues, saw example in another build, where lower case and upper wouldn't work
 
-    // Check if letter is in word & process
+    // Check if letter play back a sound, when win what next? 1/13
     function checkForLetter(letter) {
         var foundLetter = false
         var correctSound = document.createElement("audio")
         var incorrectSound = document.createElement("audio")
-        correctSound.setAttribute("src", "/assets/audio/megaman2won.wav")
-        incorrectSound.setAttribute("src","/assets/sounds/dundun.wav")
+        correctSound.setAttribute("src","assets/audio/megayes.mp3")
+        incorrectSound.setAttribute("src","assets/audio/dundun.mp3")
 
 
         // Search string for letter
@@ -98,16 +98,16 @@ $(document).ready(function() {
             if (letter === wordToMatch[i]) {
                 guessingWord[i] = letter
                 foundLetter = true
-                correctSound = play()
-
+                correctSound.play()
+            }
                 if (guessingWord.join("") === wordToMatch) {
                     wins++
-                    pauseGame = true
+                    pauseGame = false     //check this again
                     updateDisplay()
-                    setTimeout(resetGame,4500)
+                    setTimeout(resetGame,1000)
                 }
-            }        
-        }        
+            }      
+                
         // use an array to put string together to see word
             
         if (!foundLetter) {
@@ -120,8 +120,8 @@ $(document).ready(function() {
             if (numGuess === 0) {
         //         // Displays word before reset
                 guessingWord = wordToMatch.split()
-                pauseGame = true
-                setTimeout(resetGame, 4500)
+                pauseGame = false   //why would we?
+                setTimeout(resetGame,1000)
             }
         }
 //these var's are so similiar in name this is a nightmare to sort out, I might need to add a third word onto some of them to keep it straight in my head
@@ -136,7 +136,7 @@ $(document).ready(function() {
     function isAlpha (ch){
         return /^[A-Z]$/i.test(ch);
     }
-//this was a royal pain to figure out, i'm still having trouble having my file find the .js when opening in browser
+//this was a royal pain to figure out, i'm still having trouble having my file find the .js when opening in browser. update: turned out to be a (actually several) missing curly brace(s) like much else in life 1/13
 
     function resetGame() {
         numGuess = maxGuess

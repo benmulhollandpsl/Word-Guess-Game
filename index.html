@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.5">
-    <title>In The Year 20XX Guessing Game</title>
+    <title>In The Year 20XX: Guessing Game</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">√
     <link rel="stylesheet" href="assets/css/style.css">
@@ -14,7 +14,7 @@
 <body>
     <div class="container">
        <!-- title and instructions  -->
-        <h1>In The Year 20XX <br>GUESSING GAME</h1>
+        <h1>In The Year 20XX: <br>GUESSING GAME</h1>
         <P>See if you can guess the names of these robots and doctors from MegaMan 2 and 3</P>
         <p>Press any key to get started!</p>
 
@@ -35,6 +35,32 @@
 
         <!--script src's thank you JC and Bootstrap-->
        
+        <!--trying to figure out audio playback this next bit is extra nonsense maybe attach this to a footer tomorrow-->    
+        <h3>Background accoustic Megaman3 played by me and some friends</h3>
+
+        <!-- with more time I want to hide and make these appear with correct guesses-->
+
+                <br><br><br>
+        <audio id="myAudio" controls>
+  <source src="assets/audio/Megaman3atUARTS.m4a" type="audio/ogg">
+  <source src="assets/audio/Megaman3atUARTS.m4a" type="audio/m4a">
+  Your browser does not support the audio element.
+</audio>
+
+<p>Click the button to get the duration of the audio, in seconds.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myAudio").duration;
+  document.getElementById("liveatUarts2014Betatestmusic").innerHTML = x;
+}
+</script>
+
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
