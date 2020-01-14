@@ -132,11 +132,12 @@ $(document).ready(function() {
     // function isAlpha (ch){
     //     return /^[A-Z]$/i.test(ch);
     // }
-//try either 100-103 or 106-109 <------------ note from '1/11'  i've added so many lines this is a moot comment '1/12'
+//try either 100-103 or 106-109 <------------ note from -'1/11'  i've added so many lines this is a moot comment -'1/12'
     function isAlpha (ch){
         return /^[A-Z]$/i.test(ch);
     }
-//this was a royal pain to figure out, i'm still having trouble having my file find the .js when opening in browser. update: turned out to be a (actually several) missing curly brace(s) like much else in life 1/13
+//this was a royal pain to figure out, i'm still having trouble having my file find the .js when opening in browser. update: 
+// turned out to be a (actually several) missing curly brace(s) like much else in life -1/13
 
     function resetGame() {
         numGuess = maxGuess
@@ -158,7 +159,11 @@ $(document).ready(function() {
                 guessingWord.push("_")
             }
         }
-
+        //creating an alert that says "good job the answer is _" not sure how to tie 
+        // it to guessing all letters yet, and my alert code below breaks my game -1/14
+        // alert(guessingword.join(" "));
+        // alert("Good work! the character was " + word);
+        
         // Update the Display
         updateDisplay()
     }
