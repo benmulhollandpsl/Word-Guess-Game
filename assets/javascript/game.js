@@ -28,7 +28,7 @@ $(document).ready(function() {
     "BubbleMan", "MetalMan", 
     "WoodMan", "HeatMan", "Rush", "QuickMan", 
     "AirMan", "CrashMan", "DocRobot", 
-    "GeminiMan", "MagnetMan", ]
+    "GeminiMan", "MagnetMan", ];
     // ] ;
 
     const maxGuess = 10
@@ -100,9 +100,11 @@ $(document).ready(function() {
                 foundLetter = true
                 correctSound.play()
             }
+                console.log(wins)
                 if (guessingWord.join("") === wordToMatch) {
                     wins++
-                    pauseGame = false     //check this again
+                    pauseGame === false
+                    console.log(wins)     //check this again looking for how to stop constant win totals (4x- registering other in string as wins)
                     updateDisplay()
                     setTimeout(resetGame,1000)
                 }
@@ -128,16 +130,10 @@ $(document).ready(function() {
         updateDisplay()
 
     }
-    // // key pressed between A-z
-    // function isAlpha (ch){
-    //     return /^[A-Z]$/i.test(ch);
-    // }
-//try either 100-103 or 106-109 <------------ note from -'1/11'  i've added so many lines this is a moot comment -'1/12'
+ 
     function isAlpha (ch){
         return /^[A-Z]$/i.test(ch);
     }
-//this was a royal pain to figure out, i'm still having trouble having my file find the .js when opening in browser. update: 
-// turned out to be a (actually several) missing curly brace(s) like much else in life -1/13
 
     function resetGame() {
         numGuess = maxGuess
@@ -174,4 +170,9 @@ $(document).ready(function() {
         document.getElementById("remainingGuesses").innerText = numGuess
         document.getElementById("guessedLetter").innerText =  guessedLetter.join(" ")
     }
+
+    function myFunction() {
+        var x = document.getElementById("myAudio").duration;
+        document.getElementById("liveatUarts2014Betatestmusic").innerHTML = x;
+      }
 })
