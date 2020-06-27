@@ -28,21 +28,16 @@ $(document).ready(function() {
     "BubbleMan", "MetalMan", 
     "WoodMan", "HeatMan", "Rush", "QuickMan", 
     "AirMan", "CrashMan", "DocRobot", 
-    "GeminiMan", "MagnetMan", ];
+    "GeminiMan", "MagnetMan", "ToadMan", "Gamma", "BreakMan", "SparkMan"
+    ];
     // ] ;
 
     const maxGuess = 10
-   
     var pauseGame = false
-
     var guessedLetter = []
-
     var guessingWord = []
-    
     var wordToMatch
-    
     var numGuess
-    
     var wins = 0
 
     resetGame()
@@ -76,7 +71,7 @@ $(document).ready(function() {
 
 
     // Wait for key press
-    document.onkeypress = function(event) 
+    document.onkeypress = (event) => 
         {
         if (isAlpha(event.key) && !pauseGame) {
             checkForLetter(event.key.toUpperCase())
@@ -175,4 +170,5 @@ $(document).ready(function() {
         var x = document.getElementById("myAudio").duration;
         document.getElementById("liveatUarts2014Betatestmusic").innerHTML = x;
       }
+      return myFunction;
 })
