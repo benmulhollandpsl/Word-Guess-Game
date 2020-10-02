@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.5">
     <title>In The Year 20XX: Guessing Game</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">√
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- <link rel="stylesheet" href="assets/javascript/game.js"> this hasn't been working -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 </head>
 
 <body>
@@ -35,24 +36,46 @@
         <h3>Letters Guessed</h3>
         <div id="guessedLetter"></div>
 
-        <!--script src's thank you JC and Bootstrap-->
-       <hr>
-        <!--trying to figure out audio playback this next bit is extra nonsense maybe attach this to a footer tomorrow-->    
-        <h5>Background accoustic Megaman3 played by me and some friends</h5>
-
-        <!-- with more time I want to hide and make these appear with correct guesses-->
-
-                <br><br>  <!--I'd like to put this in a footer by tonight -1/13-->
-        <audio id="myAudio" controls>
-  <source src="assets/audio/Megaman3atUARTS.m4a" type="audio/ogg">
-  <source src="assets/audio/Megaman3atUARTS.m4a" type="audio/m4a">
-  Your browser does not support the audio element.
-</audio>
+       
+    
+          
+    
 
 
 <p id="demo"></p>
 
 
+<footer class ="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+    <h6>In The Year 20XX:
+Guessing Game written by Ben Mulholland. </h6>
+
+
+            </div>
+
+            <div class="col-sm">
+<a class="btn btn-outline-light btn-social mx-3" href="https://github.com/benmulhollandpsl/Word-Guess-MMGame">
+    <i class="fab fa-fw fa-github" style="font-size:18px; color:white"></i>
+</a>
+            </div>
+
+            <div class="col-sm">
+    <h5>Megaman3 Suite for Quartet</h5>
+    
+    <audio id="myAudio" controls>
+    <source src="assets/audio/Megaman3atUARTS.m4a#=1,10" type="audio/ogg">
+    <source src="assets/audio/Megaman3atUARTS.m4a#=1,10" type="audio/m4a">
+    Your browser does not support the audio element.
+    
+</audio>
+            </div>
+
+</div>
+</div>
+</div>
+</footer>
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -60,5 +83,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>    
     <script src="assets/javascript/game.js"></script>
 
+
+
+
+    
 </body>
+
 </html>
