@@ -1,5 +1,5 @@
 # Word-Guess-Game
-Word Guess Game is a game in the style of hangman.  This assignment is to use Javascript to create a word guessing game.
+In the year 20xx.  This assignment is to use Javascript to create a word guessing game.
 
 # Demo 
 ![gif of using megaman wordguess](assets/images/mmwg.gif)
@@ -13,7 +13,7 @@ HTML, CSS, Javascript, and Jquery to make a word guessing game
 
 ___
 #### history and future itirations
-the irony of choosing a megaman themed guessing game is it's hard to lose as typing MAN will get you almost half of most of the words.
+the irony of choosing a Megaman themed guessing game is it's hard to lose as typing MAN will get you almost half of most of the words.
 
 I plan to take the lessons learned from this assignment to create a word guess with musical terms to help with a classroom music teaching environment.
 
