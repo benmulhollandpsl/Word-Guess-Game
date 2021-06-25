@@ -10,17 +10,17 @@ $(document).ready(function() {
     "AirMan", "CrashMan", "DocRobot", 
     "GeminiMan", "MagnetMan", "ToadMan", "Gamma", "BreakMan", "SparkMan"
     ];
-    // ] ;
+    
 
-    const maxGuess = 10
-    var pauseGame = false
-    var guessedLetter = []
-    var guessingWord = []
-    var wordToMatch
-    var numGuess
-    var wins = 0
+    const maxGuess = 10;
+    var pauseGame = false;
+    var guessedLetter = [];
+    var guessingWord = [];
+    var wordToMatch;
+    var numGuess;
+    var wins = "";
 
-    resetGame()
+    resetGame();
 
 
 
@@ -29,18 +29,18 @@ $(document).ready(function() {
     document.onkeypress = (event) => 
         {
         if (isAlpha(event.key) && !pauseGame) {
-            checkForLetter(event.key.toUpperCase())
+            checkForLetter(event.key.toUpperCase());
         }
-    }
+    };
     //change all to caps
 
     // Check if letter play back a sound, when win what next? 1/13
     function checkForLetter(letter) {
-        var foundLetter = false
-        var correctSound = document.createElement("audio")
-        var incorrectSound = document.createElement("audio")
-        correctSound.setAttribute("src","assets/audio/megayes.mp3")
-        incorrectSound.setAttribute("src","assets/audio/dundun.mp3")
+        var foundLetter = false;
+        var correctSound = document.createElement("audio");
+        var incorrectSound = document.createElement("audio");
+        correctSound.setAttribute("src","assets/audio/megayes.mp3");
+        incorrectSound.setAttribute("src","assets/audio/dundun.mp3");
 
 
         // Search string for letter
@@ -48,15 +48,19 @@ $(document).ready(function() {
             if (letter === wordToMatch[i]) {
                 guessingWord[i] = letter
                 foundLetter = true
-                correctSound.play()
+                correctSound.play();
             }
                 console.log(wins)
-                if (guessingWord.join("") === wordToMatch) {
-                    wins++
+                if (guessingWord.join("") == wordToMatch) {
+                    console.log(guessingWord)
+                    wins++;
                     pauseGame === false
-                    console.log(wins)     //testing this, increments per guess
-                    updateDisplay()
-                    setTimeout(resetGame,1000)
+                    console.log(wins);    
+                    //testing this, increments per guess
+                    updateDisplay();
+                    setTimeout(resetGame,1000);
+                } else {
+                    setTimeout(resetGame,200000);
                 }
             }      
                 
@@ -65,8 +69,9 @@ $(document).ready(function() {
         if (!foundLetter) {
            incorrectSound.play()
             if (!guessedLetter.includes(letter)) {
-                guessedLetter.push(letter)
-                numGuess--
+                guessedLetter.push(letter);
+                console.log(letter);
+                numGuess--;
             }
             
             if (numGuess === 0) {
@@ -89,12 +94,12 @@ $(document).ready(function() {
         pauseGame = false
 
         // Get a new word
-        wordToMatch = listOfWords[Math.floor(Math.random() * listOfWords.length)].toUpperCase()
-        console.log(wordToMatch)
+        wordToMatch = listOfWords[Math.floor(Math.random() * listOfWords.length)].toUpperCase();
+        console.log(wordToMatch);
         
 
-        guessedLetter = []
-        guessingWord = []
+        guessedLetter = [];
+        guessingWord = [];
 
         // Reset the guessed word
         for (var i=0, j=wordToMatch.length; i < j; i++){
@@ -110,11 +115,13 @@ $(document).ready(function() {
         // alert("Good work! the character was " + word);
         
         // Update the Display
-        updateDisplay()
+        
+        updateDisplay();
     }
 
     function updateDisplay () {
-        document.getElementById("totalWins").innerText = wins
+        document.getElementById("totalWins").innerText = wins;
+        console.log(wins)
         document.getElementById("currentWord").innerText = guessingWord.join("")
         document.getElementById("remainingGuesses").innerText = numGuess
         document.getElementById("guessedLetter").innerText =  guessedLetter.join(" ")

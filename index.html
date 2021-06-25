@@ -8,7 +8,8 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
     
 </head>
 
@@ -16,24 +17,29 @@
     <div class="container">
        <!-- title and instructions  -->
         <h1>In The Year 20XX: <br>GUESSING GAME</h1>
-        <P>See if you can guess the names of these robots and doctors from MegaMan 2 and 3</P>
+        <p>See if you can guess the names of these robots and docs from MegaMan 2 and 3</p>
         <p>Press any key to get started!</p>
 
-       
+       <div>
         <h3>Wins</h3>
         <div id="totalWins"></div>
         <!-- this is currently correct number of letters guessed -->
+        </div>
         
         <!-- this div will show spaces and letters that are correct -->
-        <h3>Current Maverick Theme</h3>
+        <div>
+        <h3>Current Maverick Word</h3>
         <div id="currentWord"></div>
-
+        </div>
+        
+        <div>
         <!-- number of guesses remaining -->
         <h3>Guesses Remaining</h3>
         <div id="remainingGuesses"></div>
-
+        </div>
+        
         <!-- shows the letters guessed that aren't in the word -->
-        <h3>Letters Guessed</h3>
+        <h3>Wrong Letters Guessed</h3>
         <div id="guessedLetter"></div>
 
        
@@ -56,20 +62,20 @@ Guessing Game written by Ben Mulholland. </h6>
             </div>
 
             <div class="col-sm">
-<a class="btn btn-outline-light btn-social mx-3" href="https://github.com/benmulhollandpsl/Word-Guess-MMGame">
-    <i class="fab fa-fw fa-github" style="font-size:18px; color:white"></i>
+<a class="btn btn-primary" href="https://github.com/benmulhollandpsl/Word-Guess-MMGame">to Github repo
+    <i class="fa fa-github-alt" aria-hidden="true"></i>
 </a>
             </div>
 
             <div class="col-sm">
-    <h5>Megaman3 Suite for Quartet</h5>
-    
+    <!-- <h5>Megaman 3 Suite for Quartet</h5> -->
+    <br>
     <audio id="myAudio" controls loop autoplay>
     <source src="assets/audio/Megaman3atUARTS.m4a#=1,10" type="audio/ogg">
     <source src="assets/audio/Megaman3atUARTS.m4a#=1,10" type="audio/m4a">
     Your browser does not support the audio element.
     
-</audio>
+    </audio>
             </div>
 
 </div>
